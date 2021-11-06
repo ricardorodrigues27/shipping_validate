@@ -1,7 +1,7 @@
 defmodule ShippingValidate.CLI do
   @moduledoc """
   synopsis:
-    Validate cep and price based on shipping config file
+    Validate cep and price based on shipping input file
   usage:
     $ shipping_validate {options} cep price ...
   options:

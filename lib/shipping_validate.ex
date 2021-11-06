@@ -33,8 +33,4 @@ defmodule ShippingValidate do
       error -> error
     end
   end
-
-  def test(to) do
-    Keyword.get(to, :ok, "testando")
-  end
 end
