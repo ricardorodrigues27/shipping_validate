@@ -14,10 +14,10 @@ defmodule ShippingValidate do
   ## Examples
 
       iex> ShippingValidate.run_validate([cep: "12345678", price: 3000])
-      [%OutputShippingItem{}]
+      {:ok, [%ShippingValidate.Core.OutputShippingItem{}]}
 
-      iex> ShippingValidate.run_validate([input_file: "./other_file.json", cep: "12345678", price: 3000])
-      [%OutputShippingItem{}]
+      iex> ShippingValidate.run_validate([input_file: "./test/input_valid.json", cep: "12345678", price: 3000])
+      {:ok, [%ShippingValidate.Core.OutputShippingItem{}]}
 
   """
   @spec run_validate(opts :: Keyword.t()) :: {:ok, [OutputShippingItem.t()]} | {:error, any()}

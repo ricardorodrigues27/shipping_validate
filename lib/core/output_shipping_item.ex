@@ -12,16 +12,16 @@ defmodule ShippingValidate.Core.OutputShippingItem do
 
   ## Examples
 
-      iex> OutputShippingItem.build("example method", [])
-      %OutputShippingItem{method: "example method", valid: true, incompatibilities: []}
+      iex> ShippingValidate.Core.OutputShippingItem.build("example method", [])
+      %ShippingValidate.Core.OutputShippingItem{method: "example method", valid: true, incompatibilities: []}
 
-      iex> OutputShippingItem.build("example method", ["example incompatibility"])
-      %OutputShippingItem{method: "example method", valid: false, incompatibilities: ["example incompatibility"]}
+      iex> ShippingValidate.Core.OutputShippingItem.build("example method", ["example incompatibility"])
+      %ShippingValidate.Core.OutputShippingItem{method: "example method", valid: false, incompatibilities: ["example incompatibility"]}
   """
-  @spec build(name :: String.t(), incompatibilities :: [String.t()]) :: t()
-  def build(name, incompatibilities) when length(incompatibilities) > 0,
-    do: %__MODULE__{method: name, valid: false, incompatibilities: incompatibilities}
+  @spec build(method :: String.t(), incompatibilities :: [String.t()]) :: t()
+  def build(method, incompatibilities) when length(incompatibilities) > 0,
+    do: %__MODULE__{method: method, valid: false, incompatibilities: incompatibilities}
 
-  def build(name, incompatibilities),
-    do: %__MODULE__{method: name, valid: true, incompatibilities: incompatibilities}
+  def build(method, incompatibilities),
+    do: %__MODULE__{method: method, valid: true, incompatibilities: incompatibilities}
 end

@@ -11,15 +11,15 @@ defmodule ShippingValidate.Validates.ValidateInputFile do
 
   ## Examples
 
-      iex> ValidateInputFile.call(input_file: "./example.json")
+      iex> ShippingValidate.Validates.ValidateInputFile.call(input_file: "./test/input_valid.json")
       {:ok, [
-        %{"name": "Entrega normal SP", "active": true, "min_price_in_cents": 1, "range_postcode_valid": ["01000000", "19999999"]}
+        %{"name" => "Entrega normal SP", "active" => true, "min_price_in_cents" => 1, "range_postcode_valid" => ["01000000", "19999999"]}
       ]}
 
-      iex> ValidateInputFile.call(input_file: "./file_doesnt_exists.json")
-      {:error, :enoent}
+      iex> ShippingValidate.Validates.ValidateInputFile.call(input_file: "./test/missing_file.json")
+      {:error, :unabled_to_open_input_file}
 
-      iex> ValidateInputFile.call(input_file: "./invalid_data.json")
+      iex> ShippingValidate.Validates.ValidateInputFile.call(input_file: "./test/wrong_data.json")
       {:error, :wrong_data}
   """
   @spec call(opts :: Keyword.t()) :: {:ok, List.t()} | {:error, atom()}
@@ -55,7 +55,10 @@ defmodule ShippingValidate.Validates.ValidateInputFile do
   defp validate_input_data(_), do: {:error, :wrong_data}
 
   @spec handle_error({:error, any()}) :: {:error, atom()}
-  defp handle_error({:error, error}) when error in [:enoent, :eaccess, :eisdir, :enotdir, :enomem], do: {:error, :unabled_to_open_input_file}
+  defp handle_error({:error, error})
+       when error in [:enoent, :eaccess, :eisdir, :enotdir, :enomem],
+       do: {:error, :unabled_to_open_input_file}
+
   defp handle_error({:error, %Jason.DecodeError{}}), do: {:error, :invalid_json_file}
   defp handle_error(error), do: error
 end

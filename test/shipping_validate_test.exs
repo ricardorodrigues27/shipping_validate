@@ -1,8 +1,23 @@
 defmodule ShippingValidateTest do
   use ExUnit.Case
-  doctest ShippingValidate
+  alias ShippingValidate.Core.OutputShippingItem
 
-  test "greets the world" do
-    assert ShippingValidate.hello() == :world
+  describe "run_validate/1" do
+    test "validate cep and price with input file and return output data" do
+      assert {:ok, response} =
+               ShippingValidate.run_validate(
+                 input_file: "./test/input_valid.json",
+                 cep: "01234567",
+                 price: 2000
+               )
+
+      assert response == [
+               %OutputShippingItem{
+                 method: "Entrega normal SP",
+                 valid: true,
+                 incompatibilities: []
+               }
+             ]
+    end
   end
 end

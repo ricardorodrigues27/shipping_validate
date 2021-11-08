@@ -14,15 +14,11 @@ defmodule ShippingValidate.Core.HandleInputData do
 
   ## Examples
 
-      iex> HandleInputData.call(
-        [%{"name": "Entrega normal SP", "active": true, "min_price_in_cents": 1, "range_postcode_valid": ["01000000", "19999999"]}],
-        "01234567", 2000)
-      [%OutputShippingItem{method: "Entrega normal SP", valid: true, incompatibilities: []}]
+      iex> ShippingValidate.Core.HandleInputData.call([%{"name" => "Entrega normal SP", "active" => true, "min_price_in_cents" => 1, "range_postcode_valid" => ["01000000", "19999999"]}], "01234567", 2000)
+      [%ShippingValidate.Core.OutputShippingItem{method: "Entrega normal SP", valid: true, incompatibilities: []}]
 
-      iex> HandleInputData.call(
-        [%{"name": "Entrega normal SP", "active": false, "min_price_in_cents": 1, "range_postcode_valid": ["01000000", "19999999"]}],
-        "01234567", 2000)
-      [%OutputShippingItem{method: "Entrega normal SP", valid: false, incompatibilities: ["Disabled shipping"]}]
+      iex> ShippingValidate.Core.HandleInputData.call([%{"name" => "Entrega normal SP", "active" => false, "min_price_in_cents" => 1, "range_postcode_valid" => ["01000000", "19999999"]}], "01234567", 2000)
+      [%ShippingValidate.Core.OutputShippingItem{method: "Entrega normal SP", valid: false, incompatibilities: ["Disabled shipping"]}]
   """
   @spec call(input_data :: List.t(), cep :: String.t(), price :: Integer.t()) :: [
           OutputShippingItem.t()

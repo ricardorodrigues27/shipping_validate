@@ -8,17 +8,17 @@ defmodule ShippingValidate.Validates.ValidateCep do
 
   ## Examples
 
-      iex> ValidateCep.call("12345678")
-      {:ok, 12345678}
+      iex> ShippingValidate.Validates.ValidateCep.call("12345678")
+      {:ok, "12345678"}
 
-      iex> ValidateCep.call("00123456")
-      {:ok, 123456}
+      iex> ShippingValidate.Validates.ValidateCep.call("00123456")
+      {:ok, "00123456"}
 
-      iex> ValidateCep.call("123456")
-      {:ok, :invalid_cep_size}
+      iex> ShippingValidate.Validates.ValidateCep.call("123456")
+      {:error, :invalid_cep_size}
 
-      iex> ValidateCep.call("aa123456")
-      {:ok, :invalid_cep_format}
+      iex> ShippingValidate.Validates.ValidateCep.call("aa123456")
+      {:error, :invalid_cep_format}
   """
   @spec call(cep :: String.t()) :: {:ok, String.t()} | {:error, atom()}
   def call(cep) do
