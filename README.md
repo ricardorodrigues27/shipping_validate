@@ -12,9 +12,7 @@ as responsabilidades no entanto foram dividas em pequenos contextos `validates` 
   O módulo `cli.ex` é responsável por conter o código que o executável irá rodar.
   Cada módulo com seu respectivo contexto possui um arquivo de teste correspondente com testes específicos para cada contexto.
 
-# Compilar e gerar o executável (OPCIONAL)
-
-  O arquivo executável `shipping_validate` já esta presente no repositório mas caso queira compilar e gerar outro siga as seguintes instruções:
+# Compilar e gerar o executável
 
   ## Pré-requisitos
 
@@ -24,6 +22,8 @@ as responsabilidades no entanto foram dividas em pequenos contextos `validates` 
   Para compilar e gerar o executável apenas rode o comando:
 
   - `mix escript.build`
+
+  O arquivo será gerado na raiz do projeot com nome de `shipping_validate`
 
 # Como funciona
 
