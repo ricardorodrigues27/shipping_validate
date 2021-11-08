@@ -16,7 +16,7 @@ as responsabilidades no entanto foram dividas em pequenos contextos `validates` 
 
   ## Pré-requisitos
 
-  - Rodar `asdf install` para rodar a versão correta do elixir (caso utilize como package manager)
+  - Rodar `asdf install` para instalar a versão correta do elixir (caso utilize como package manager)
   - `mix deps.get` para baixar as dependências do projeto
 
   Para compilar e gerar o executável apenas rode o comando:
