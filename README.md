@@ -23,14 +23,14 @@ as responsabilidades no entanto foram dividas em pequenos contextos `validates` 
 
   - `mix escript.build`
 
-  O arquivo será gerado na raiz do projeot com nome de `shipping_validate`
+  O arquivo será gerado na raiz do projeto com o nome de `shipping_validate`
 
 # Como funciona
 
   O programa `./shipping_validate` (executável) roda no terminal os seguintes argumentos
   `./shipping_validate cep price --input-file-path=./default.json`
 
-  - O input_file_path é o caminho do arquivo de configuração se não for passado vai pegar o padrão `./default.json`
+  - O input_file_path é o caminho do arquivo de configuração e se não for passado vai usar o padrão presente na raiz do projeto `./default.json`
   - O cep é aceito no seguinte formato `00000000` com 8 dígitos (caso tenha o tamanho ou o formato estejam errados irá retornar erro)
   - price (number / string)
   
